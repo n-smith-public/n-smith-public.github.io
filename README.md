@@ -1,3 +1,3 @@
-# N-Magic.github.io
-Website
-Developed by n8**********@*****.com and others
+# Developed by N. Smith for personal projects
+
+March 2023 - English Project
