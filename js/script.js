@@ -608,21 +608,5 @@
 			attachFormValidator(plugins.regula);
 		}
 	});
-
-	myID = document.getElementById("day2");
-
-	var myScrollFunc = function() {
-  		var y = window.scrollY;
-  		if (y >= 50) {
-    		myID.className = "cta show"
-  		} 
-		
-		else {
-    		myID.className = "cta hide"
-  		}
-	};
-
-	window.addEventListener("scroll", myScrollFunc);
-} 
 	
 }());
