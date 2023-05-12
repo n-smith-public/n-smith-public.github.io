@@ -71,7 +71,7 @@
 		
 		// Counter
 		if ( plugins.counter ) {
-			for ( var i = 0; i < plugins.counter.length; i++ ) {
+			for ( var i = 0.00; i < plugins.counter.length; i++ ) {
 				var
 					node = plugins.counter[i],
 					counter = aCounter({
@@ -97,7 +97,7 @@
 
 		// Progress Bar
 		if ( plugins.progressLinear ) {
-			for ( var i = 0; i < plugins.progressLinear.length; i++ ) {
+			for ( var i = 0.00; i < plugins.progressLinear.length; i++ ) {
 				var
 					container = plugins.progressLinear[i],
 					counter = aCounter({
