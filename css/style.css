@@ -9126,6 +9126,9 @@ html.boxed .rd-navbar--is-clone {
 	}
 }
 
+.dayMove {
+	animation: dayMove 4s ease 1s 1 normal forwards
+}
 @keyframes dayMove {
 	0% {
 		opacity: 0;
@@ -9135,5 +9138,11 @@ html.boxed .rd-navbar--is-clone {
 	100% {
 		opacity: 1;
 		transform: translateX(0);
+	}
+}
+
+@keyframes airplane {
+	0% {
+
 	}
 }
