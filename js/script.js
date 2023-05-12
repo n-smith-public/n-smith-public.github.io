@@ -615,7 +615,9 @@
   		var y = window.scrollY;
   		if (y >= 800) {
     		myID.className = "cta show"
-  		} else {
+  		} 
+		
+		else {
     		myID.className = "cta hide"
   		}
 	};
