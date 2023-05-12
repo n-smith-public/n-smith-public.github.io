@@ -797,6 +797,87 @@ button.button-xs[type='submit'], .button-group-xs > button[type='submit'].button
 		line-height: 50px;
 	}
 }
+
+.jumbotronBlack .button.button-sm {
+	padding: 12px 26px;
+}
+
+.jumbotronBlack * + .button-group-variant {
+	margin-top: 30px;
+}
+
+@media (min-width: 992px) {
+	.jumbotronBlack * + .button-group-variant {
+		margin-top: 60px;
+	}
+}
+
+.jumbotronBlack .button + .button {
+	margin-top: 0;
+	margin-left: 20px;
+}
+
+@media (max-width: 767px) {
+	.jumbotronBlack .button {
+		display: block;
+		width: 100%;
+		font-size: 12px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		max-width: 320px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.jumbotronBlack .button + .button {
+		margin-top: 20px;
+		margin-left: auto;
+	}
+}
+
+.jumbotronBlack > hr {
+	border-top-color: rgba(0, 0, 0, 0);
+}
+
+.container .jumbotronBlack,
+.container-fluid .jumbotronBlack {
+	border-radius: 0.3rem;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.jumbotronBlack .container {
+	max-width: 100%;
+}
+
+.jumbotronBlack .button {
+	display: inline-block;
+	border: 2px solid transparent;
+	font-size: 15px;
+}
+
+.jumbotronBlack .button-default {
+	border-color: rgba(255, 255, 255, 0.3);
+}
+
+.jumbotronBlack .button-default:hover {
+	border: 2px solid #14a5eb;
+}
+
+.jumbotronBlack .button-primary:hover {
+	border: 2px solid #14a5eb;
+}
+
+.jumbotronBlack .no-offset {
+	margin-top: 0;
+}
+
+* + .jumbotronBlack .no-offset {
+	margin-top: 0;
+}
+
+.jumbotronBlack.margin-large {
+	margin-top: 200px;
+}
 /* HE */
 
 .jumbotron h1,
