@@ -609,16 +609,18 @@
 		}
 	});
 
-	var prevScrollpos = window.pageYOffset;
-	window.onscroll = function() {
-  	var currentScrollPos = window.pageYOffset;
-  	if (prevScrollpos < currentScrollPos) {
-    	document.getElementById("day2").style.top = "0";
-  	} 
-	else {
-    	document.getElementById("day2").style.top = "-50px";
-  	}
-  	prevScrollpos = currentScrollPos;
+	myID = document.getElementById("day2");
+
+	var myScrollFunc = function() {
+  		var y = window.scrollY;
+  		if (y >= 800) {
+    		myID.className = "cta show"
+  		} else {
+    		myID.className = "cta hide"
+  		}
+	};
+
+	window.addEventListener("scroll", myScrollFunc);
 } 
 	
 }());

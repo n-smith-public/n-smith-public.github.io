@@ -9154,8 +9154,22 @@ html.boxed .rd-navbar--is-clone {
 	}
 }
 
-@keyframes airplane {
-	0% {
-
-	}
+.cta {
+    position: fixed;
+    bottom: 20px;
+    right:20px;
+    width: 60px;
+    height: 60px;
+    border-radius:50%;
+    background: red;
+    z-index: 1;
+    transition: all 1s;
+}
+.hide {
+    opacity:0;
+    left:-100%;
+}
+.show {
+    opacity:1;
+    left:0;
 }
