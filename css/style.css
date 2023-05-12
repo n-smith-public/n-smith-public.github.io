@@ -9131,11 +9131,11 @@ html.boxed .rd-navbar--is-clone {
 }
 
 .dayMove:nth-child(1) {
-	-webkit-animation-delay: 1s;
+	animation-delay: 3s;
 }
 
 .dayMove:nth-child(2) {
-	-webkit-animation-delay: 3s;
+	animation-delay: 5s;
 }
 
 @keyframes dayMove {
