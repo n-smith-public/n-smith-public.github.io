@@ -9138,6 +9138,10 @@ html.boxed .rd-navbar--is-clone {
 	animation-delay: 5s;
 }
 
+.dayMove:nth-child(3) {
+	animation-delay: 7s;
+}
+
 @keyframes dayMove {
 	0% {
 		opacity: 0;
