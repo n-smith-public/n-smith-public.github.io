@@ -613,7 +613,7 @@
 
 	var myScrollFunc = function() {
   		var y = window.scrollY;
-  		if (y >= 800) {
+  		if (y >= 200) {
     		myID.className = "cta show"
   		} 
 		
