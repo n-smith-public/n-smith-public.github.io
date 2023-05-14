@@ -2,7 +2,7 @@
 <html class="wide wow-animation" lang="en"> 
   <head>
     <!--Site Title-->
-    <title>OA History</title>
+    <title>Gallery</title>
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -55,59 +55,82 @@
                 <ul class="rd-navbar-nav">
                   <li><a href="./">Home</a></li>
                   <li class="active"><a href="about.html">General Info</a></l>
-                  <li class="active"><a href="history.html">OA History</a></li>
+                  <li class="active"><a href="history.html">Gallery</a></li>
                 </ul>
                 <!--END RD Navbar Nav-->
               </div>
             </div>
           </nav>
         </div>
-        <!--END RD Navbar-->
-        <section>
-          <!--Swiper-->
-          <div class="swiper-container swiper-slider" data-autoplay="5000" data-slide-effect="fade" data-loop="false">
-            <div class="jumbotron text-center">
-              <h1><small>OA History</small>
-              </h1>
-              <p class="big"></p>
-            </div>
-            <div class="swiper-wrapper">
-              <div class="swiper-slide" data-slide-bg="images/oa11.jpg">
-                <div class="swiper-slide-caption"></div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <div></div>
       </header>
       <!--
       ========================================================
       												CONTENT
       ========================================================
       -->
-      <main class="page-content"> 
-        <ol class="breadcrumb section-border">
-          <li><a href="index.html">Home</a></li>
-          <li class="active">History</li>
-        </ol>
+      <main class="page-content">
         <section class="text-center text-md-left">
           <div class="container">
             <div class="row typography">
               <div class="col-lg-12">
-                <h1>The History of the OA</h1>
-            <hr>
-            <div class="row flex-lg-row-reverse justify-content-between row-30">
-              <div class="col-lg-5 col-xl-6"><img src="images/ArrowMenWithDrum.jpg" alt=""></div>
-              <div class="col-lg-6 col-xl-5">
-                <p class="inset-md">In 1915, Camp Director E. Urner Goodman and Assistant Camp Director Carroll A. Edson searched for a way to recognize select campers for their cheerful spirits of service at Treasure Island Scout Camp in the Delaware River.  Goodman and Edson founded the Order of the Arrow when they held the first Ordeal Ceremony on July 16th of that year.  By 1921, as the popularity of the organization spread to other camps, local lodges attended the first national gathering called a Grand Lodge Meeting.</p>
-                
+                <h1>Gallery</h1>
               </div>
-            </div>
-                <p>The Order of the Arrow was one of many camp honor societies that existed at local Scout camps across the country.  As the years went on and more camps adopted the Order of the Arrow’s program, it gained prominence and became part of the national Boy Scout program in 1934.  By 1948, the OA, recognized as the BSA's national brotherhood of honor campers, became an official part of the Boy Scouts of America.  Toward the end of the twentieth century, the OA expanded its focus to include conservation, high adventure, and servant-leadership.</p>
-                <p>Throughout the years, the Order of the Arrow has played an integral role in the program of the Boy Scouts and in the community service its members contribute to their communities.  To date, more than one million people have been members of the Order of the Arrow.</p>
-                <p>Presently, the Order of the Arrow consists of nearly 300 lodges, which form approximately 48 sections in four regions.  Leadership positions and voting rights are restricted to members under the age of 21.  Through the program, members live up to the ideals of brotherhood, cheerfulness, and service set forth by E. Urner Goodman and Carroll A. Edson.</p>
-              </div>
+              <hr>
             </div>
           </div>
+        </section>
+        <!-- Container for the image gallery -->
+        <section>
+        <div class="container">
+
+          <!-- Full-width images with number text -->
+          <div class="mySlides">
+            <div class="numbertext">1 / 6</div>
+            <img src="reykavik_guesthouse.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">2 / 6</div>
+            <img src="skogar_waterfall.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">3 / 6</div>
+            <img src="glacier_1.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">4 / 6</div>
+            <img src="golden_valley.jpg" style="width:100%">
+          </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <!-- Image text -->
+            <div class="caption-container">
+              <p id="caption"></p>
+            </div>
+
+            <!-- Thumbnail images -->
+            <div class="row">
+              <div class="column">
+                <img class="demo cursor" src="reykavik_guesthouse.jpg" style="width:100%" onclick="currentSlide(1)" alt="Norðurey Guesthouse">
+              </div>
+              <div class="column">
+                <img class="demo cursor" src="skogar_waterfall.jpg" style="width:100%" onclick="currentSlide(2)" alt="Skogar Waterfall">
+              </div>
+              <div class="column">
+                <img class="demo cursor" src="glacier_1.jpg" style="width:100%" onclick="currentSlide(3)" alt="Svínafellsjökull Glacier">
+              </div>
+              <div class="column">
+                <img class="demo cursor" src="golden_valley.jpg" style="width:100%" onclick="currentSlide(4)" alt="The Golden Valley">
+              </div>
+            </div>
+          </div> 
+        </div>
         </section>
       </main>
       <!--
@@ -116,12 +139,6 @@
       ========================================================
       -->
       <footer class="page-footer footer-centered text-center">
-        <section class="footer-content">
-          <div class="container">
-            <div class="navbar-brand"><a href="index.html"><img src="images/Signature_Horizontal_Standard.png" alt=""></a></div>
-            <p class="big">Thank you for watching our TED Talk.</p>
-          </div>
-        </section>
         <section class="copyright">
           <div class="container">
             <p>&#169; <span class="copyright-year"></span> All Rights Reserved</p>
@@ -129,8 +146,6 @@
         </section>
       </footer>
     </div>
-    <!-- Global Mailform Output-->
-    <div class="snackbars" id="form-output-global"> </div>
     <!--Core Scripts-->
     <script src="js/core.min.js"></script>
     <!--Additional Functionality Scripts-->
