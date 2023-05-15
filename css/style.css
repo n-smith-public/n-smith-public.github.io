@@ -8522,6 +8522,7 @@ html.boxed .rd-navbar--is-clone {
 	transition-property: transform, -webkit-transform;
 }
 
+
 .swiper-invisible-blank-slide {
 	visibility: hidden;
 }
@@ -9292,15 +9293,51 @@ html.boxed .rd-navbar--is-clone {
 }
 
 .dayMove:nth-child(1) {
-	animation-duration: 5s;
+	animation-duration: 3s;
 }
 
 .dayMove:nth-child(2) {
-	animation-duration: 10s;
+	animation-duration: 4s;
 }
 
 .dayMove:nth-child(3) {
-	animation-duration: 15s;
+	animation-duration: 5s;
+}
+
+.dayMove:nth-child(4) {
+	animation-duration: 6s;
+}
+
+.dayMove:nth-child(5) {
+	animation-duration: 7s;
+}
+
+.dayMove:nth-child(6) {
+	animation-duration: 8s;
+}
+
+.dayMove:nth-child(7) {
+	animation-duration: 9s;
+}
+
+.dayMove:nth-child(8) {
+	animation-duration: 10s;
+}
+
+.dayMove:nth-child(9) {
+	animation-duration: 11s;
+}
+
+.dayMove:nth-child(10) {
+	animation-duration: 12s;
+}
+
+.dayMove:nth-child(11) {
+	animation-duration: 13s;
+}
+
+.dayMove:nth-child(12) {
+	animation-duration: 14s;
 }
 
 @keyframes dayMove {
@@ -9406,26 +9443,26 @@ html.boxed .rd-navbar--is-clone {
 
 * {
 	box-sizing: border-box;
-  }
+}
   
-  /* Position the image container (needed to position the left and right arrows) */
-  .container {
+/* Position the image container (needed to position the left and right arrows) */
+.container {
 	position: relative;
-  }
+}
   
-  /* Hide the images by default */
-  .mySlides {
+/* Hide the images by default */
+.mySlides {
 	display: none;
-  }
+}
   
-  /* Add a pointer when hovering over the thumbnail images */
-  .cursor {
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
 	cursor: pointer;
-  }
+}
   
-  /* Next & previous buttons */
-  .prev,
-  .next {
+/* Next & previous buttons */
+.prev,
+.next {
 	cursor: pointer;
 	position: absolute;
 	top: 40%;
@@ -9438,55 +9475,55 @@ html.boxed .rd-navbar--is-clone {
 	border-radius: 0 3px 3px 0;
 	user-select: none;
 	-webkit-user-select: none;
-  }
+}
   
-  /* Position the "next button" to the right */
-  .next {
+/* Position the "next button" to the right */
+.next {
 	right: 0;
 	border-radius: 3px 0 0 3px;
-  }
+}
   
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover,
-  .next:hover {
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
 	background-color: rgba(0, 0, 0, 0.8);
-  }
+}
   
-  /* Number text (1/3 etc) */
-  .numbertext {
+/* Number text (1/3 etc) */
+.numbertext {
 	color: #f2f2f2;
 	font-size: 12px;
 	padding: 8px 12px;
 	position: absolute;
 	top: 0;
-  }
+}
   
-  /* Container for image text */
-  .caption-container {
+/* Container for image text */
+.caption-container {
 	text-align: center;
 	background-color: #222;
 	padding: 2px 16px;
 	color: white;
-  }
+}
   
-  .row:after {
+.row:after {
 	content: "";
 	display: table;
 	clear: both;
-  }
+}
   
-  /* Six columns side by side */
-  .column {
+/* Six columns side by side */
+.column {
 	float: left;
 	width: 16.66%;
-  }
+}
   
-  /* Add a transparency effect for thumnbail images */
-  .demo {
+/* Add a transparency effect for thumnbail images */
+.demo {
 	opacity: 0.6;
-  }
+}
   
-  .active,
-  .demo:hover {
+.active,
+.demo:hover {
 	opacity: 1;
-  }
+}
