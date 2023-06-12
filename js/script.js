@@ -402,6 +402,7 @@
 				containerClass: 'ui-to-top fa fa-angle-up'
 			});
 		}
+		
 
 		/**
 		 * @module       RD Navbar

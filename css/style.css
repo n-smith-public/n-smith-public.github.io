@@ -111,6 +111,20 @@ html p a:hover {
 }
 
 /*
+* @important styling
+*/
+.column {
+	float: left;
+	width: 50%;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/*
 * @subsection   Icons
 */
 .icon {
@@ -8522,7 +8536,6 @@ html.boxed .rd-navbar--is-clone {
 	transition-property: transform, -webkit-transform;
 }
 
-
 .swiper-invisible-blank-slide {
 	visibility: hidden;
 }
@@ -8893,6 +8906,52 @@ html.boxed .rd-navbar--is-clone {
 
 @media (min-width: 576px) {
 	.ui-to-top {
+		right: 40px;
+		bottom: 40px;
+	}
+}
+
+.ui-to-content {
+	width: 50px;
+	height: 50px;
+	font-size: 24px;
+	line-height: 46px;
+	color: #FFF;
+	background: #14a5eb;
+	border-radius: 50%;
+	box-shadow: 0 0 0 rgba(0, 0, 0, 0.12), 3px 4px 8px 0px rgba(0, 0, 0, 0.11);
+	position: fixed;
+	right: 15px;
+	bottom: 15px;
+	overflow: hidden;
+	text-align: center;
+	text-decoration: none;
+	z-index: 20;
+	transform: translateY(100px);
+}
+
+.ui-to-content:focus {
+	color: #FFF;
+	background: #14a5eb;
+}
+
+.ui-to-content:content {
+	color: #FFF;
+	background: #1295d4;
+	text-decoration: none;
+}
+
+.ui-to-content.active {
+	transform: translateY(-50);
+}
+
+.mobile .ui-to-content,
+.tablet .ui-to-content {
+	display: none !important;
+}
+
+@media (min-width: 576px) {
+	.ui-to-content {
 		right: 40px;
 		bottom: 40px;
 	}
@@ -9293,51 +9352,15 @@ html.boxed .rd-navbar--is-clone {
 }
 
 .dayMove:nth-child(1) {
-	animation-duration: 3s;
-}
-
-.dayMove:nth-child(2) {
-	animation-duration: 4s;
-}
-
-.dayMove:nth-child(3) {
 	animation-duration: 5s;
 }
 
-.dayMove:nth-child(4) {
-	animation-duration: 6s;
-}
-
-.dayMove:nth-child(5) {
-	animation-duration: 7s;
-}
-
-.dayMove:nth-child(6) {
-	animation-duration: 8s;
-}
-
-.dayMove:nth-child(7) {
-	animation-duration: 9s;
-}
-
-.dayMove:nth-child(8) {
+.dayMove:nth-child(2) {
 	animation-duration: 10s;
 }
 
-.dayMove:nth-child(9) {
-	animation-duration: 11s;
-}
-
-.dayMove:nth-child(10) {
-	animation-duration: 12s;
-}
-
-.dayMove:nth-child(11) {
-	animation-duration: 13s;
-}
-
-.dayMove:nth-child(12) {
-	animation-duration: 14s;
+.dayMove:nth-child(3) {
+	animation-duration: 15s;
 }
 
 @keyframes dayMove {
@@ -9440,90 +9463,8 @@ html.boxed .rd-navbar--is-clone {
 .button4 {border-radius: 12px;}
 .button45 {border-radius: 12px; width: 125%; background-color: #F1A8CD}
 .button5 {border-radius: 50%;}
+.buttonTitle {border-radius: 12px; width: 200%; background-color: #e72424;}
 
-* {
-	box-sizing: border-box;
-}
-  
-/* Position the image container (needed to position the left and right arrows) */
-.container {
-	position: relative;
-}
-  
-/* Hide the images by default */
-.mySlides {
-	display: none;
-}
-  
-/* Add a pointer when hovering over the thumbnail images */
-.cursor {
-	cursor: pointer;
-}
-  
-/* Next & previous buttons */
-.prev,
-.next {
-	cursor: pointer;
-	position: absolute;
-	top: 40%;
-	width: auto;
-	padding: 16px;
-	margin-top: -50px;
-	color: white;
-	font-weight: bold;
-	font-size: 20px;
-	border-radius: 0 3px 3px 0;
-	user-select: none;
-	-webkit-user-select: none;
-}
-  
-/* Position the "next button" to the right */
-.next {
-	right: 0;
-	border-radius: 3px 0 0 3px;
-}
-  
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-	background-color: rgba(0, 0, 0, 0.8);
-}
-  
-/* Number text (1/3 etc) */
-.numbertext {
-	color: #f2f2f2;
-	font-size: 12px;
-	padding: 8px 12px;
-	position: absolute;
-	top: 0;
-}
-  
-/* Container for image text */
-.caption-container {
-	text-align: center;
-	background-color: #222;
-	padding: 2px 16px;
-	color: white;
-}
-  
-.row:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-  
-/* Six columns side by side */
-.column {
-	float: left;
-	width: 16.66%;
-}
-  
-/* Add a transparency effect for thumnbail images */
-.demo {
-	opacity: 0.6;
-}
-  
-.active,
-.demo:hover {
-	opacity: 1;
+#gradAbout {
+	background-image: linear-gradient(#b9b9b9, #4b4b4b) ;
 }
