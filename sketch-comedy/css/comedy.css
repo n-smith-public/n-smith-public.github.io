@@ -1,0 +1,174 @@
+body, html, main, section {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2,
+h1 {
+    text-align: center;
+}
+
+h2 {
+    margin-top: -2%;
+    margin-bottom: 5%;
+}
+
+.titleBackground {
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    background-color: rgb(90, 90, 90);
+}
+
+.foregroundContainer {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: rgba(164, 164, 164, 0.7);
+    border: 2px solid rgba(207, 207, 207, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px auto;
+}
+
+.foregroundContainer hr {
+    border: 0;
+    height: 1px;
+    background-color: #000;
+    width: 90%;
+    margin: 20px auto;
+}
+
+
+.titleForeground {
+    z-index: 1;
+    height: auto;
+    max-width: 100%;
+    position: absolute;
+    left: 0;
+}
+
+.return {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 0.5em 1em;
+    background-color: #707070;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: calc(12px + 0.5vw);
+    transition: background-color 0.5s;
+}
+
+.return:hover {
+    background-color: #505050;
+}
+
+.return:active {
+    background-color: #303030;
+}
+
+.link {
+    width: 30%;
+    background-color: #707070;
+    padding: 2px;
+    border-radius: 2.5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    text-align: center;
+    transition: background-color 0.5s;
+}
+
+.link a {
+    margin: 0;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.link:hover {
+    background-color: #505050;
+}
+
+.link:active {
+    background-color: #303030;
+}
+
+.dropdown {
+    width: 70%;
+    background-color: #707070;
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.dropdown-label {
+    margin: 0;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.dropdown-content {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 10px;
+    background-color: #c6c6c6;
+    color: #000;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.termContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: auto;
+}
+
+.termContainer .link {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.dropdown-arrow {
+    margin-top: -10%;
+    float: right;
+    color: white;
+}
+
+
+ul {
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+ul li::before {
+    content: "> ";
+    color: black;
+    margin-right: 5px;
+}
+
+.dropdown-content ul li {
+    margin: 5px 0;
+}
+
+.dropdown.active .dropdown-content {
+    display: block;
+}
