@@ -24,10 +24,12 @@
 </head>
 <body>
     <div class="titleBackground">
+        <button id="toggleDesign" onclick="toggleDesign()" style="display: flex; align-items: center;">
+            <span id="designIcon">🌞</span>
+        </button>
         <div class="foregroundContainer">
             <h1>Kilroy Sketch Comedy</h1>
             <h2>Scripts by Nick</h2>
-            <p><i>Note: Click on the text, not the entire button to link.</i></p>
             <div class="link">
                 <p><a href="Credits.html">Credits</a></p>
             </div>
@@ -36,12 +38,16 @@
                 <span class="dropdown-arrow">&#9662;</span>
                 <div class="dropdown-content" id="d24Content">
                     <div class="termContainer">
-                        <div class="link">
-                            <p><a href="Shonk Tonk.html">Shonk Tonk</a></p>
-                        </div>
-                        <div class="link">
-                            <p><a href="The Impractical Superhero.html">The Impractical Superhero</a></p>
-                        </div>
+                        <a style="display: block; text-decoration: none; color: white" href="Shonk Tonk.html">
+                            <div class="link">
+                                <p>Shonk Tonk</p>
+                            </div>
+                        </a>
+                        <a style="display: block; text-decoration: none; color: white" href="The Impractical Superhero.html">
+                            <div class="link">
+                                <p>The Impractical Superhero</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -50,52 +56,52 @@
                 <span class="dropdown-arrow">&#9662;</span>
                 <div class="dropdown-content" id="a24Content">
                     <div class="termContainer">
-                    <div class="link">
-                        <p><a href="Kaven Hall.html">Kaven Hall</a></p>
+                        <a style="display: block; text-decoration: none; color: white" href="Kaven Hall.html">
+                            <div class="link">
+                                <p>Kaven Hall</p>
+                            </div>
+                        </a>
+                        <a style="display: block; text-decoration: none; color: white" href="Roxanne.html">
+                            <div class="link">
+                                <p>Roxanne</p>
+                            </div>
+                        </a>
                     </div>
-                    <div class="link">
-                        <p><a href="Roxanne.html">Roxanne</a></p>
-                    </div>
-                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <script src="js/styling.js"></script>
     <script>
         function toggleDropdown(dropdownID) {
-    const dropdownContent = document.getElementById(dropdownID);
-    const isVisible = dropdownContent.style.display === "block";
+            const dropdownContent = document.getElementById(dropdownID);
+            const isVisible = dropdownContent.style.display === "block";
     
-    // Hide all dropdowns
-    document.querySelectorAll('.dropdown-content').forEach(content => {
-        content.style.display = 'none';
-    });
+            document.querySelectorAll('.dropdown-content').forEach(content => {
+                content.style.display = 'none';
+            });
 
-    // If it was not visible, show it
-    if (!isVisible) {
-        dropdownContent.style.display = 'block';
-    }
-}
+            if (!isVisible) {
+                dropdownContent.style.display = 'block';
+            }
+        }
 
-// Attach event listeners after DOM has loaded
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.dropdown').forEach(dropdown => {
-        dropdown.addEventListener('click', function(event) {
-            const dropdownID = this.querySelector('.dropdown-content').id;
-            toggleDropdown(dropdownID);
-            event.stopPropagation(); // Prevents event bubbling
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.addEventListener('click', function(event) {
+                    const dropdownID = this.querySelector('.dropdown-content').id;
+                    toggleDropdown(dropdownID);
+                    event.stopPropagation(); // Prevents event bubbling
+                });
+            });
+
+            document.querySelectorAll('.dropdown-content a').forEach(link => {
+                link.addEventListener('click', function(event) {
+                    window.location.href = this.href;
+                    event.stopPropagation();
+                });
+            });
         });
-    });
-
-    // Handle link clicks inside the dropdown
-    document.querySelectorAll('.dropdown-content a').forEach(link => {
-        link.addEventListener('click', function(event) {
-            // Allow the link to work normally
-            window.location.href = this.href;
-            // Stop the dropdown from closing immediately
-            event.stopPropagation();
-        });
-    });
-});
     </script>
 </body>
 </html>

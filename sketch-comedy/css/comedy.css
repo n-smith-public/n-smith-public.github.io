@@ -172,3 +172,21 @@ ul li::before {
 .dropdown.active .dropdown-content {
     display: block;
 }
+
+#toggleDesign {
+    padding: 10px 20px;
+    background-color: #707070;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.5s;
+}
+
+#toggleDesign:hover {
+    background-color: #505050;
+}

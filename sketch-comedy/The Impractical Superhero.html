@@ -39,7 +39,7 @@
               <div class="rd-navbar-nav-wrap">
                 <!--RD Navbar Nav-->
                 <ul class="rd-navbar-nav">
-                  <p class="active"><a href="index-comedy.html">Other Sketches</a></li>
+                  <p class="active"><a onclick="handleReturn()">Other Sketches</a></li>
                 </ul>
                 <!--END RD Navbar Nav-->
               </div>
@@ -127,5 +127,17 @@
           </div>
         </section>
       </main>
+      <script>
+        function handleReturn() {
+          const referrer = document.referrer;
+          if (referrer.includes('index-comedy.html')) {
+            // If the user came from the new design
+            window.location.href = 'index-comedy.html';
+          } else {
+            //  If the user came from the old design or elsewhere
+            window.location.href = 'index-comedy Old.html';
+          }
+        }
+      </script>
   </body>
 </html>

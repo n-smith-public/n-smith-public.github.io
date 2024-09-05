@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/comedy2.css">
     
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
   </head>
@@ -47,6 +48,11 @@
             </div>
           </nav>
         </div>
+        <div class="theme-button-container">
+          <button id="toggleDesign" onclick="toggleDesign()" style="display: flex; align-items: center;">
+            <span id="designIcon">🌙</span>
+          </button> 
+        </div>
         <!--END RD Navbar-->
         <section>
           <!--Swiper-->
@@ -54,7 +60,8 @@
             <div class="jumbotronBlack text-center" style="position:relative; bottom:-30%">
               <h1 class="slider-title">Kilroy Sketch Comedy</h1>
               <p class="big slider-title">Scripts by Nick Smith</p>
-              <p class="big slider-title"><a href="Credits.html">Credits</a></p>
+              <p class="big slider-title"><a href="Credits Old.html">Credits</a></p>
+              <p class="font-weight-bold">Note: This design will not be updated from B24 onwards.</p>
             </div>
           </div>
         </section>
@@ -64,7 +71,7 @@
       												CONTENT
       ========================================================
       -->
-      <main class="page-content"> 
+      <main class="page-content">
         <!--Start section-->
         <section class="text-center well well-sm">
           <div class="container">
@@ -74,8 +81,8 @@
                   <p><a href="Shonk Tonk.html">Shonk Tonk</a></p>
                   <p><a href="The Impractical Superhero.html">The Impractical Superhero</a></p>
                 <h1 class="font-weight-bold">A24</h1>
-                  <p><a href="Kaven Hall.html">Kaven Hall</a></p>
-                  <p><a href="Roxanne.html">Roxanne</a></p>
+                  <p><a href="Kaven Hall Old.html">Kaven Hall</a></p>
+                  <p><a href="Roxanne Old.html">Roxanne</a></p>
               </div>
             </div>
           </div>
@@ -104,5 +111,10 @@
     <script src="js/core.min.js"></script>
     <!--Additional Functionality Scripts-->
     <script src="js/script.js"></script>
+    <script>
+      function toggleDesign() {
+        window.location.href = 'index-comedy.html';
+      }
+    </script>
   </body>
 </html>
