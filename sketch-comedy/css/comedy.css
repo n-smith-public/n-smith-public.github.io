@@ -190,3 +190,97 @@ ul li::before {
 #toggleDesign:hover {
     background-color: #505050;
 }
+
+.hamburger-menu {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+    cursor: pointer;
+  }
+  
+  .hamburger-icon {
+    width: 30px;
+    height: 3px;
+    background-color: black;
+    margin: 6px 0;
+  }
+  
+  /* Dropdown content */
+  .dropdown-content-accessibility {
+    display: none;
+    position: fixed;
+    left: 10px;
+    top: 50px;
+    background-color: rgba(164, 164, 164, 0.7);
+    border: 2px solid rgba(207, 207, 207, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    z-index: 100;
+  }
+  
+  .dropdown-content-accessibility.show {
+    display: block;
+  }
+
+  #toggleColorsButton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #707070;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 2px solid transparent; /* Remove border */
+    cursor: pointer;
+    transition: background-color 0.3s ease, border 0.3s ease;
+  }
+  
+  /* Hover state */
+  #toggleColorsButton:hover {
+    background-color: #505050; /* Darker blue on hover */
+  }
+  
+  /* Active state */
+  #toggleColorsButton:active {
+    background-color: #303030; /* Even darker blue on click */
+  }
+  
+  /* Focused state */
+  #toggleColorsButton:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue focus outline */
+  }
+
+  .character {
+    font-weight: bold;
+  }
+
+  .character black {
+    color: #000;
+  }
+
+  .character red {
+    color: #ff3838;
+  }
+
+  .character green {
+    color: #59f58d;
+  }
+
+  .character blue {
+    color: #2679d8;
+  }
+
+  .character purple {
+    color: #a82ee8;
+  }
+
+  .character orange {
+    color: #ff8c38;
+  }
+
+  .character yellow {
+    color: #d4cb75;
+  }
