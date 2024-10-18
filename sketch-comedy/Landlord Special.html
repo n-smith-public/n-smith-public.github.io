@@ -41,13 +41,13 @@
                 <p><a href="https://www.when2meet.com/?26256989-fYUgF">When2Meet</a></p>
             </div>-->
             <div class="dropdown" id="castDropdown">
-                <h2 class="dropdown-label" onclick="toggleDropdown(lastfmBox)">Cast</h2>
+                <h2 class="dropdown-label">Cast</h2>
                 <span class="dropdown-arrow">&#9662;</span>
                 <div class="dropdown-content" id="castBox">
                     <ul>
                         <p class="character black">Landlord (Any) - Average Worcester area landlord, kinda a scumbag but still wants to look presentable</p>
                         <p class="character red">Roommate 1 (Any) - Naive roommate, going with the flow of whatever the landlord suggests</p>
-                        <p class="character blue">Roommate 2 (Any) - The one who knows the landlord is a scumbag, but keeps getting cut off</p>
+                        <p class="character green">Roommate 2 (Any) - The one who knows the landlord is a scumbag, but keeps getting cut off</p>
                     </ul>
                 </div>
             </div>
@@ -68,12 +68,12 @@
         <p><i>This is based on the parody I Walk to Burger King, which is based on the Green Day song Boulevard of Broken Dreams. The rythm of the singing should match the rhythm of the opening bit.</i></p>-->
         <hr style="color:#000000; border-width:3">
         <div>
-            <p><i>Open on a closed exterior door. <span class="character black">LANDLORD</span> is unlocking the door, while <span class="character red">ROOMMATE 1</span> and <span class="character blue" >ROOMMATE 2</span> are standing behind the camera.</i></p>
+            <p><i>Open on a closed exterior door. <span class="character black">LANDLORD</span> is unlocking the door, while <span class="character red">ROOMMATE 1</span> and <span class="character green" >ROOMMATE 2</span> are standing behind the camera.</i></p>
             <p><i><span class="character black">LANDLORD</span> fiddles with the door for a second before opening it, as the door open, the camera moves to inside the hallway, facing the group. We do not see the rest of the hallway/.</i>
             <p><b><span class="character black">LANDLORD</span></b> - And this is the place.</p>
             <p><b><span class="character red">ROOMMATE 1</span></b> - Oh wow, look at that nice shade of Mustard Yellow (<i>Or similarly off colour, could be the actual colour of the walls, or the complete opposite.</i>)... wait,. what's that?</p>
             <p><b><span class="character black">LANDLORD</span></b> - Oh that? It's the complimentary black mold. It comes with all houses nowadays.</p>
-            <p><b><span class="character blue">ROOMMATE 2</span></b> - I don't think thats... (<i>Gets cut off</i>)</p>
+            <p><b><span class="character green">ROOMMATE 2</span></b> - I don't think thats... (<i>Gets cut off</i>)</p>
             <p><b><span class="character black">LANDLORD</span></b> - And if you follow me down the hallway, you'll see the first bedroom.</p>
             <p><i>Camera moves down the hall as the trio goes further into the apartment, keeping the 3 in shot while hiding anything else.</i></p>
             <p><b><span class="character red">ROOMMATE 1</span></b> - So... spacious.</p>
@@ -83,7 +83,7 @@
             <p><i>The closet should not have a carpet.</i></p>
             <p><b><span class="character black">LANDLORD</span></b> - Nope. (<i>Pause</i>) Well, now if you look across the hallway, there's the kitchen. Recently remodeled.</i></p>
             <p><i>Camera turns around, avoiding showing the remainder of the hallway, and turns to a kitchen. There should be a hole at about eye level w/ the camera. Can either be an actual hole, or a black circle taped onto the wall.</i></p>
-            <p><b><span class="character blue">ROOMMATE 2</span></b> - Hmm... I'm pretty sure I just saw... (<i>Gets cut off, again</i>)</p>
+            <p><b><span class="character green">ROOMMATE 2</span></b> - Hmm... I'm pretty sure I just saw... (<i>Gets cut off, again</i>)</p>
             <p><b><span class="character black">LANDLORD</span></b> - And that would be your complimentary pet. Keep in mind that this is the only pet allowed on the lease.</p>
             <p><b><span class="character red">ROOMMATE 1</span></b> - Is it friendly?</p>
             <p><b><span class="character black">LANDLORD</span></b> - Only if you feed it cheese.</p>
@@ -91,11 +91,11 @@
             <p><b><span class="character black">LANDLORD</span></b> - And there's the other bedroom, but that's boring. Instead, take a look at the <i>pristine</i> bathroom. (<i>Add extra enthesis on the pristine</i>)</p>
             <p><i>Camera turns back towards the people during this, where we follow them go to another room, where the camera turns around to an empty room with just a single bucket. Ideally, the lights will be off in this room.</i></p>
             <p><b><span class="character red">ROOMMATE 1</span></b> - Awesome!</p>
-            <p><b><span class="character blue">ROOMMATE 2</span></b> - Is this even legal?</p>
+            <p><b><span class="character green">ROOMMATE 2</span></b> - Is this even legal?</p>
             <p><b><span class="character black">LANDLORD</span></b> - Of course it is! Unfortunately, the shower is currently being renovated. For now, you will need to go upstairs and ask your neighbors to borrow theirs.</p>
             <p><b><span class="character red">ROOMMATE 1</span></b> - Sounds normal, I had to do that back in (<i>Insert city that isn't Worcester.</i>)</p>
             <p><b><span class="character black">LANDLORD</b> - Yup. Any questions?</p>
-            <p><b><span class="character blue">ROOMMATE 2</span></b> - Several. First off... (<i>Cut off again</i>)</p>
+            <p><b><span class="character green">ROOMMATE 2</span></b> - Several. First off... (<i>Cut off again</i>)</p>
             <p><b><span class="character red">ROOMMATE 1</span></b> - Nope! When can we sign?</p>
             <p><b><span class="character black">LANDLORD</span></b> - I have the lease right here.</p>
             <p><i>The <span class="character black">LANDLORD</span> hands them a paper, something akin to the Hunter Clickbait warrants, or a poster for this show, or something else. During this, the scene fades to black as the title card "The Landlord Special" shows up, before it also fades away.</i></p>
@@ -105,13 +105,14 @@
     <script>
         // Attach event listeners after DOM has loaded
         document.addEventListener('DOMContentLoaded', function() {
+            applyCharacterColors();
             document.getElementById('castDropdown').addEventListener('click', function() {
                 toggleDropdown('castBox');
             });
 
-            document.getElementById('costumeDropdown').addEventListener('click', function() {
-                toggleDropdown('costumeBox');
-            });
+            //document.getElementById('costumeDropdown').addEventListener('click', function() {
+            //    toggleDropdown('costumeBox');
+            //});
         });
     </script>
 </body>
