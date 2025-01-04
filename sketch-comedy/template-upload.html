@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketch Title</title>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <style>
+        @media only screen and (min-width: 600px) {
+          main{
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          header {
+            text-align: center;
+          }
+        }
+
+        body, html, main, section {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h2,
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: -2%;
+            margin-bottom: 5%;
+        }
+
+        .titleBackground {
+            min-height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            position: relative;
+            background-color: rgb(90, 90, 90);
+        }
+
+        .foregroundContainer {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            padding: 20px;
+            background-color: rgba(164, 164, 164, 0.7);
+            border: 2px solid rgba(207, 207, 207, 0.8);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 20px auto;
+        }
+
+        .foregroundContainer hr {
+            border: 0;
+            height: 1px;
+            background-color: #000;
+            width: 90%;
+            margin: 20px auto;
+        }
+
+
+        .titleForeground {
+            z-index: 1;
+            height: auto;
+            max-width: 100%;
+            position: absolute;
+            left: 0;
+        }
+
+        .return {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 0.5em 1em;
+            background-color: #707070;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: calc(12px + 0.5vw);
+            transition: background-color 0.5s;
+        }
+
+        .return:hover {
+            background-color: #505050;
+        }
+
+        .return:active {
+            background-color: #303030;
+        }
+
+        .link {
+            width: 30%;
+            background-color: #707070;
+            padding: 2px;
+            border-radius: 2.5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            text-align: center;
+            transition: background-color 0.5s;
+        }
+
+        .link a {
+            margin: 0;
+            padding: 10px;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            background-color: #505050;
+        }
+
+        .link:active {
+            background-color: #303030;
+        }
+
+        .dropdown {
+            width: 70%;
+            background-color: #707070;
+            padding: 5px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .dropdown-label {
+            margin: 0;
+            padding: 10px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .dropdown-content {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            padding: 10px;
+            background-color: #c6c6c6;
+            color: #000;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .dropdown-arrow {
+            margin-top: -10%;
+            float: right;
+            color: white;
+        }
+
+
+        ul {
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li::before {
+            content: "> ";
+            color: black;
+            margin-right: 5px;
+        }
+
+        .dropdown-content ul li {
+            margin: 5px 0;
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        #toggleDesign {
+            padding: 10px 20px;
+            background-color: #707070;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.5s;
+        }
+
+        #toggleDesign:hover {
+            background-color: #505050;
+        }
+
+        .hamburger-menu {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 100;
+            cursor: pointer;
+        }
+  
+        .hamburger-icon {
+            width: 30px;
+            height: 3px;
+            background-color: black;
+            margin: 6px 0;
+        }
+  
+        /* Dropdown content */
+        .dropdown-content-accessibility {
+            display: none;
+            position: fixed;
+            left: 10px;
+            top: 50px;
+            background-color: rgba(164, 164, 164, 0.7);
+            border: 2px solid rgba(207, 207, 207, 0.8);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            z-index: 100;
+        }
+  
+        .dropdown-content-accessibility.show {
+            display: block;
+        }
+
+        #toggleColorsButton {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #707070;
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 2px solid transparent; /* Remove border */
+            cursor: pointer;
+            transition: background-color 0.3s ease, border 0.3s ease;
+        }
+  
+        /* Hover state */
+        #toggleColorsButton:hover {
+            background-color: #505050; /* Darker blue on hover */
+        }
+  
+        /* Active state */
+        #toggleColorsButton:active {
+            background-color: #303030; /* Even darker blue on click */
+        }
+  
+        /* Focused state */
+        #toggleColorsButton:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue focus outline */
+        }
+
+        .character {
+            font-weight: bold;
+        }
+
+        .character black {
+            color: #000;
+        }
+
+        .character red {
+            color: #ff3838;
+        }
+
+        .character green {
+            color: #59f58d;
+        }
+
+        .character blue {
+            color: #2679d8;
+        }
+
+        .character purple {
+            color: #a82ee8;
+        }
+
+        .character orange {
+            color: #ff8c38;
+        }
+
+        .character yellow {
+            color: #d4cb75;
+        }
+      </style>
+</head>
+<body>
+    <div class="titleBackground">
+        <div class="hamburger-menu" onclick="toggleAccessibilityMenu()">
+            <div class="hamburger-icon"></div>
+            <div class="hamburger-icon"></div>
+            <div class="hamburger-icon"></div>
+          </div>
+          
+          <div class="dropdown-content-accessibility" id="accessibilityDropdown">
+            <button id="toggleColorsButton" onclick="toggleCharacterColors()">Toggle Character Colors</button>
+          </div>
+          
+        <div class="foregroundContainer">
+            <h1>Sketch Title</h1>
+            <!--<div class="link">
+                <p><a href="https://www.when2meet.com/?26256989-fYUgF">When2Meet</a></p>
+            </div>-->
+            <div class="dropdown" id="castDropdown">
+                <h2 class="dropdown-label" onclick="toggleDropdown(lastfmBox)">Cast</h2>
+                <span class="dropdown-arrow">&#9662;</span>
+                <div class="dropdown-content" id="castBox">
+                    <ul>
+                        <p class="character black">Person 1 (Presententing Gender Preference) - Brief Description</p>
+                    </ul>
+                </div>
+            </div>
+            <!--<div class="dropdown" id="costumeDropdown">
+                <h2 class="dropdown-label" onclick="toggleDropdown(costumeBox)">Costuming</h2>
+                <span class="dropdown-arrow">&#9662;</span>
+                <div class="dropdown-content" id="costumeBox">
+                    <p><span style="color:#000000">Person 1</span>
+                    <ul>
+                        Shirt: Anything that feels 2010s, Vine video vibe.<br>
+                        Pants: See above<br>
+                        Accessories: Anything that fits, I have no preferences.
+                    </ul>  
+                    </p>
+            </div>
+        </div>
+        <p>Any additional help provided</p>
+        <p><i>Any additional details needed to understand the sketch</i></p>-->
+        <hr style="color:#000000; border-width:3">
+        <div>
+            <p><i>Describe scene/overall actions</i></p>
+            <p><i><span class="character black">Person 1</span> Action</i>
+            <p><b><span class="character black">Person 1</span></b> - Dialogue</p>
+        </div>
+    </div>
+    <script>
+        function toggleDropdown(dropdownID) {
+            const dropdownContent = document.getElementById(dropdownID);
+            if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
+                dropdownContent.style.display = "block";
+            } else {
+                dropdownContent.style.display = "none";
+            }
+        }
+
+        function toggleAccessibilityMenu() {
+            const dropdown = document.getElementById("accessibilityDropdown");
+            dropdown.classList.toggle("show");
+        }
+
+        let colorsOn = true;
+        function toggleCharacterColors() {
+            const characterNames = document.querySelectorAll(".character");
+    
+            if (colorsOn) {
+                characterNames.forEach(name => {
+                    name.style.color = '#000000';
+                });
+            }
+            else {
+                applyCharacterColors();
+            }
+
+            colorsOn = !colorsOn;
+        }
+
+        function applyCharacterColors() {
+            const characterNames = document.querySelectorAll(".character");
+            characterNames.forEach(name => {
+                if (name.classList.contains("black")) name.style.color = '#000000';
+                if (name.classList.contains("red")) name.style.color = '#ff3838';
+                if (name.classList.contains("blue")) name.style.color = '#7ec7ff';
+                if (name.classList.contains("green")) name.style.color = '#59f58d';
+                if (name.classList.contains("purple")) name.style.color = '#a82ee8';
+                if (name.classList.contains("orange")) name.style.color = '#ff8c38';
+                if (name.classList.contains("yellow")) name.style.color = '#d4cb75';
+            });
+        }
+        // Attach event listeners after DOM has loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            applyCharacterColors();
+            document.getElementById('castDropdown').addEventListener('click', function() {
+                toggleDropdown('castBox');
+            });
+
+            document.getElementById('costumeDropdown').addEventListener('click', function() {
+                toggleDropdown('costumeBox');
+            });
+        });
+    </script>
+</body>
+</html>

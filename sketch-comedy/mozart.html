@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/sketch-icon.ico?" type="image/x-icon">
+    <title>Mozart</title>
+    <link rel="stylesheet" href="css/comedy.css">
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <style>
+        @media only screen and (min-width: 600px) {
+          main{
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          header {
+            text-align: center;
+          }
+        }
+      </style>
+</head>
+<body>
+    <div class="titleBackground">
+        <div class="hamburger-menu" onclick="toggleAccessibilityMenu()">
+            <div class="hamburger-icon"></div>
+            <div class="hamburger-icon"></div>
+            <div class="hamburger-icon"></div>
+          </div>
+          
+          <div class="dropdown-content-accessibility" id="accessibilityDropdown">
+            <button id="toggleColorsButton" onclick="toggleCharacterColors()">Toggle Character Colors</button>
+          </div>
+          
+        <div class="foregroundContainer">
+            <a href="index-comedy.html" class="return">Other Sketches</a>
+            <h1>Mozart</h1>
+            <!--<div class="link">
+                <p><a href="https://www.when2meet.com/?26256989-fYUgF">When2Meet</a></p>
+            </div>-->
+            <div class="dropdown" id="castDropdown">
+                <h2 class="dropdown-label" onclick="toggleDropdown(lastfmBox)">Cast</h2>
+                <span class="dropdown-arrow">&#9662;</span>
+                <div class="dropdown-content" id="castBox">
+                    <ul>
+                        <p class="character black">Mozart (Male) - The famous musician. Ideally someone who can look like him.</p>
+                    </ul>
+                </div>
+            </div>
+            <!--<div class="dropdown" id="costumeDropdown">
+                <h2 class="dropdown-label" onclick="toggleDropdown(costumeBox)">Costuming</h2>
+                <span class="dropdown-arrow">&#9662;</span>
+                <div class="dropdown-content" id="costumeBox">
+                    <p><span style="color:#000000">Person 1</span>
+                    <ul>
+                        Shirt: Anything that feels 2010s, Vine video vibe.<br>
+                        Pants: See above<br>
+                        Accessories: Anything that fits, I have no preferences.
+                    </ul>  
+                    </p>
+            </div>
+        </div>
+        <p>Any additional help provided</p>
+        <p><i>Any additional details needed to understand the sketch</i></p>-->
+        <hr style="color:#000000; border-width:3">
+        <div>
+            <p><i>Open on <span class="character black">Mozart</span> standing in front of a doorway, his back to the camera. Above the doorway is a sign that says "Pie Factory"</i></p>
+            <p><i><span class="character black">Mozart</span> ponders the sign for a moment</i>
+            <p><b><span class="character black">Mozart</span></b> - Oh wow, a fresh baked pie? Just for me?</p>
+            <p><i><span class="character black">Mozart</span></i> walks into the door. He closes the door behind him.</p>
+            <p><i>As the door closes, the "Pie Factory" sign falls away, revealing a sign that says "Mozart Death House"</i></p>
+        </div>
+    </div>
+    <script src="js/comedy.js"></script>
+    <script>
+        // Attach event listeners after DOM has loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            applyCharacterColors();
+            document.getElementById('castDropdown').addEventListener('click', function() {
+                toggleDropdown('castBox');
+            });
+
+            document.getElementById('costumeDropdown').addEventListener('click', function() {
+                toggleDropdown('costumeBox');
+            });
+        });
+    </script>
+</body>
+</html>

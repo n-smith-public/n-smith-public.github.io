@@ -26,14 +26,6 @@ function toggleCharacterColors() {
     }
 
     colorsOn = !colorsOn;
-    
-    //characterNames.forEach(name => {
-    //if (name.style.color == 'black') {
-    //    applyCharacterColors();
-    //} else {
-    //    name.style.color = 'black';
-    //}
-    //});
 }
 
 function applyCharacterColors() {
