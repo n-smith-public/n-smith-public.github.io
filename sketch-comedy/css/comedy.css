@@ -288,3 +288,9 @@ ul li::before {
   .character yellow {
     color: #d4cb75;
   }
+
+  .sketchLink {
+    display: block; 
+    text-decoration: none; 
+    color: white
+  }

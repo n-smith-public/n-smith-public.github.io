@@ -7,7 +7,6 @@
     <title>Sketch Comedy</title>
     <link rel="stylesheet" href="css/comedy.css">
     <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <style>
         @media only screen and (min-width: 600px) {
           main{
@@ -30,19 +29,19 @@
             <h1>Kilroy Sketch Comedy</h1>
             <h2>Scripts by Nick</h2>
             <div class="link">
-                <p><a href="Credits.html" tabindex="1">Credits</a></p>
+                <p><a href="Credits.html" tabindex="0">Credits</a></p>
             </div>
             <div class="dropdown" id="d24Drop">
-                <h2 class="dropdown-label" onclick="toggleDropdown(lastfmBox)" tabindex="2" role="button" aria-expanded="false" aria-controls="d24Content">D24</h2>
+                <h2 class="dropdown-label" onclick="toggleDropdown('d24Content')" role="button" tabindex="0" aria-expanded="false" aria-controls="d24Content">D24</h2>
                 <span class="dropdown-arrow">&#9662;</span>
                 <div class="dropdown-content" id="d24Content" aria-hidden="true">
                     <div class="termContainer">
-                        <a style="display: block; text-decoration: none; color: white" href="Shonk Tonk.html" tabindex="3">
+                        <a class="sketchLink" href="Shonk Tonk.html" tabindex="0">
                             <div class="link">
                                 <p>Shonk Tonk</p>
                             </div>
                         </a>
-                        <a style="display: block; text-decoration: none; color: white" href="The Impractical Superhero.html" tabindex="4">
+                        <a class="sketchLink" href="The Impractical Superhero.html" tabindex="0">
                             <div class="link">
                                 <p>The Impractical Superhero</p>
                             </div>
@@ -51,16 +50,16 @@
                 </div>
             </div>
             <div class="dropdown" id="a24Drop">
-                <h2 class="dropdown-label" onclick="toggleDropdown(costumeBox)" tabindex="5" aria-expanded="false" aria-controls="a24Content">A24</h2>
+                <h2 class="dropdown-label" onclick="toggleDropdown('a24Content')" role="button" tabindex="0" aria-expanded="false" aria-controls="a24Content">A24</h2>
                 <span class="dropdown-arrow">&#9662;</span>
                 <div class="dropdown-content" id="a24Content" aria-hidden="true">
                     <div class="termContainer">
-                        <a style="display: block; text-decoration: none; color: white" href="Kaven Hall.html" tabindex="6">
+                        <a class="sketchLink" href="Kaven Hall.html" tabindex="0">
                             <div class="link">
                                 <p>Kaven Hall</p>
                             </div>
                         </a>
-                        <a style="display: block; text-decoration: none; color: white" href="Roxanne.html" tabindex="7">
+                        <a class="sketchLink" href="Roxanne.html" tabindex="0">
                             <div class="link">
                                 <p>Roxanne</p>
                             </div>
@@ -69,16 +68,16 @@
                 </div>
             </div>
             <div class="dropdown" id="b24Drop">
-                <h2 class="dropdown-label" onclick="toggleDropdown(costumeBox)" tabindex="8" aria-expanded="false" aria-controls="b24Content">B24</h2>
+                <h2 class="dropdown-label" onclick="toggleDropdown('b24Content')" role="button" tabindex="0" aria-expanded="false" aria-controls="b24Content">B24</h2>
                 <span class="dropdown-arrow">&#9662;</span>
                 <div class="dropdown-content" id="b24Content" aria-hidden="true">
                     <div class="termContainer">
-                        <a style="display: block; text-decoration: none; color: white" href="Landlord Special.html" tabindex="9">
+                        <a class="sketchLink" href="Landlord Special.html" tabindex="0">
                             <div class="link">
                                 <p>The Landlord Special</p>
                             </div>
                         </a>
-                        <a style="display: block; text-decoration: none; color: white" href="Kiss It Better.html" tabindex="10">
+                        <a class="sketchLink" href="Kiss It Better.html" tabindex="0">
                             <div class="link">
                                 <p>Kiss™ It Better</p>
                             </div>
@@ -87,21 +86,22 @@
                 </div>
             </div>
             <div class="dropdown" id="c25Drop">
-                <h2 class="dropdown-label" onclick="toggleDropdown(costumeBox)" tabindex="11" aria-expanded="false" aria-controls="c25Content">C25</h2>
+                <h2 class="dropdown-label" onclick="toggleDropdown('c25Content')" tabindex="0" role="button" aria-expanded="false" aria-controls="c25Content">C25</h2>
                 <span class="dropdown-arrow">&#9662;</span>
                 <div class="dropdown-content" id="c25Content" aria-hidden="true">
                     <div class="termContainer">
-                        <a style="display: block; text-decoration: none; color: white" href="the-real-show.html" tabindex="12">
+                        <a class="sketchLink" href="the-real-show.html" tabindex="0">
                             <div class="link">
                                 <p>The Real Show</p>
                             </div>
                         </a>
-                        <a style="display: block; text-decoration: none; color: white" href="mozart.html" tabindex="13">
+                        <a class="sketchLink" href="mozart.html" tabindex="0">
                             <div class="link">
                                 <p>Mozart</p>
                             </div>
                         </a>
                     </div>
+                </div>
             </div>
         </div>
     </div>
@@ -123,6 +123,17 @@
                 dropdownLabel.setAttribute("aria-expanded", "true");
             }
         }
+
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown-content').forEach(content => {
+                    content.setAttribute("aria-hidden", "true");
+                });
+                document.querySelectorAll('.dropdown-label').forEach(label => {
+                    label.setAttribute("aria-expanded", "false");
+                });
+            }
+        });
 
         document.addEventListener('DOMContentLoaded', function() {
            document.querySelectorAll(".dropdown-label").forEach(label => {
