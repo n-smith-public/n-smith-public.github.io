@@ -135,6 +135,10 @@ h2 {
     margin-top: 10px;
 }
 
+.dropdown-content[aria-hidden="false"] {
+    display: block;
+}
+
 .termContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="images/sketch-icon.ico?" type="image/x-icon">
     <title>Sketch Comedy</title>
     <link rel="stylesheet" href="css/comedy.css">
@@ -23,26 +23,26 @@
 </head>
 <body>
     <div class="titleBackground">
-        <button id="toggleDesign" onclick="toggleDesign()" style="display: flex; align-items: center;">
+        <button id="toggleDesign" onclick="toggleDesign()" style="display: flex; align-items: center;" tabindex="0" aria-label="Toggle Design">
             <span id="designIcon">🌞</span>
         </button>
         <div class="foregroundContainer">
             <h1>Kilroy Sketch Comedy</h1>
             <h2>Scripts by Nick</h2>
             <div class="link">
-                <p><a href="Credits.html">Credits</a></p>
+                <p><a href="Credits.html" tabindex="1">Credits</a></p>
             </div>
             <div class="dropdown" id="d24Drop">
-                <h2 class="dropdown-label" onclick="toggleDropdown(lastfmBox)">D24</h2>
+                <h2 class="dropdown-label" onclick="toggleDropdown(lastfmBox)" tabindex="2" role="button" aria-expanded="false" aria-controls="d24Content">D24</h2>
                 <span class="dropdown-arrow">&#9662;</span>
-                <div class="dropdown-content" id="d24Content">
+                <div class="dropdown-content" id="d24Content" aria-hidden="true">
                     <div class="termContainer">
-                        <a style="display: block; text-decoration: none; color: white" href="Shonk Tonk.html">
+                        <a style="display: block; text-decoration: none; color: white" href="Shonk Tonk.html" tabindex="3">
                             <div class="link">
                                 <p>Shonk Tonk</p>
                             </div>
                         </a>
-                        <a style="display: block; text-decoration: none; color: white" href="The Impractical Superhero.html">
+                        <a style="display: block; text-decoration: none; color: white" href="The Impractical Superhero.html" tabindex="4">
                             <div class="link">
                                 <p>The Impractical Superhero</p>
                             </div>
@@ -51,16 +51,16 @@
                 </div>
             </div>
             <div class="dropdown" id="a24Drop">
-                <h2 class="dropdown-label" onclick="toggleDropdown(costumeBox)">A24</h2>
+                <h2 class="dropdown-label" onclick="toggleDropdown(costumeBox)" tabindex="5" aria-expanded="false" aria-controls="a24Content">A24</h2>
                 <span class="dropdown-arrow">&#9662;</span>
-                <div class="dropdown-content" id="a24Content">
+                <div class="dropdown-content" id="a24Content" aria-hidden="true">
                     <div class="termContainer">
-                        <a style="display: block; text-decoration: none; color: white" href="Kaven Hall.html">
+                        <a style="display: block; text-decoration: none; color: white" href="Kaven Hall.html" tabindex="6">
                             <div class="link">
                                 <p>Kaven Hall</p>
                             </div>
                         </a>
-                        <a style="display: block; text-decoration: none; color: white" href="Roxanne.html">
+                        <a style="display: block; text-decoration: none; color: white" href="Roxanne.html" tabindex="7">
                             <div class="link">
                                 <p>Roxanne</p>
                             </div>
@@ -69,16 +69,16 @@
                 </div>
             </div>
             <div class="dropdown" id="b24Drop">
-                <h2 class="dropdown-label" onclick="toggleDropdown(costumeBox)">B24</h2>
+                <h2 class="dropdown-label" onclick="toggleDropdown(costumeBox)" tabindex="8" aria-expanded="false" aria-controls="b24Content">B24</h2>
                 <span class="dropdown-arrow">&#9662;</span>
-                <div class="dropdown-content" id="b24Content">
+                <div class="dropdown-content" id="b24Content" aria-hidden="true">
                     <div class="termContainer">
-                        <a style="display: block; text-decoration: none; color: white" href="Landlord Special.html">
+                        <a style="display: block; text-decoration: none; color: white" href="Landlord Special.html" tabindex="9">
                             <div class="link">
                                 <p>The Landlord Special</p>
                             </div>
                         </a>
-                        <a style="display: block; text-decoration: none; color: white" href="Kiss It Better.html">
+                        <a style="display: block; text-decoration: none; color: white" href="Kiss It Better.html" tabindex="10">
                             <div class="link">
                                 <p>Kiss™ It Better</p>
                             </div>
@@ -86,17 +86,17 @@
                     </div>
                 </div>
             </div>
-            <div class="dropdown" id="c24Drop">
-                <h2 class="dropdown-label" onclick="toggleDropdown(costumeBox)">C24</h2>
+            <div class="dropdown" id="c25Drop">
+                <h2 class="dropdown-label" onclick="toggleDropdown(costumeBox)" tabindex="11" aria-expanded="false" aria-controls="c25Content">C25</h2>
                 <span class="dropdown-arrow">&#9662;</span>
-                <div class="dropdown-content" id="c24Content">
+                <div class="dropdown-content" id="c25Content" aria-hidden="true">
                     <div class="termContainer">
-                        <a style="display: block; text-decoration: none; color: white" href="the-real-show.html">
+                        <a style="display: block; text-decoration: none; color: white" href="the-real-show.html" tabindex="12">
                             <div class="link">
                                 <p>The Real Show</p>
                             </div>
                         </a>
-                        <a style="display: block; text-decoration: none; color: white" href="mozart.html">
+                        <a style="display: block; text-decoration: none; color: white" href="mozart.html" tabindex="13">
                             <div class="link">
                                 <p>Mozart</p>
                             </div>
@@ -109,18 +109,36 @@
     <script>
         function toggleDropdown(dropdownID) {
             const dropdownContent = document.getElementById(dropdownID);
-            const isVisible = dropdownContent.style.display === "block";
+            const dropdownLabel = document.querySelector(`[aria-controls="${dropdownID}"]`);
+            const isVisible = dropdownContent.getAttribute("aria-hidden") === "false";
     
             document.querySelectorAll('.dropdown-content').forEach(content => {
-                content.style.display = 'none';
+                content.setAttribute("aria-hidden", "true");;
+                const label = document.querySelector(`[aria-controls="${content.id}"]`);
+                label.setAttribute("aria-expanded", "false");
             });
 
             if (!isVisible) {
-                dropdownContent.style.display = 'block';
+                dropdownContent.setAttribute("aria-hidden", "false");
+                dropdownLabel.setAttribute("aria-expanded", "true");
             }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
+           document.querySelectorAll(".dropdown-label").forEach(label => {
+                label.addEventListener('click', function() {
+                    const dropdownID = this.getAttribute("aria-controls");
+                    toggleDropdown(dropdownID);
+                });
+
+                label.addEventListener('keydown', function(event) {
+                    if (event.key === "Enter" || event.key === " ")  {
+                        const dropdownID = this.getAttribute("aria-controls");
+                        toggleDropdown(dropdownID);
+                    }
+                });
+            })
+
             document.querySelectorAll('.dropdown').forEach(dropdown => {
                 dropdown.addEventListener('click', function(event) {
                     const dropdownID = this.querySelector('.dropdown-content').id;
