@@ -7,7 +7,6 @@
     <title>Roxanne</title>
     <link rel="stylesheet" href="css/comedy.css">
     <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <style>
         @media only screen and (min-width: 600px) {
           main{
@@ -24,13 +23,13 @@
 <body>
     <div class="titleBackground">
         <div class="foregroundContainer">
-            <a href="index-comedy.html" class="return">Other Sketches</a>
+            <a href="index-comedy.html" class="return" role="link" tabindex="0">Other Sketches</a>
             <h1>Roxanne</h1>
-            <div class="link">
+            <div class="link" role="button" tabindex="0">
                 <p><a href="https://www.when2meet.com/?26256934-n2pEL">When2Meet</a></p>
             </div>
             <div class="dropdown" id="castDropdown">
-                <h2 class="dropdown-label" onclick="toggleDropdown(lastfmBox)">Cast</h2>
+                <h2 class="dropdown-label" onclick="toggleDropdown(castBox)" role="button" tabindex="0" aria-hidden="false" aria-controls="castBox">Cast</h2>
                 <span class="dropdown-arrow">&#9662;</span>
                 <div class="dropdown-content" id="castBox">
                     <ul>
@@ -41,7 +40,7 @@
                 </div>
             </div>
             <div class="dropdown" id="costumeDropdown">
-                <h2 class="dropdown-label" onclick="toggleDropdown(costumeBox)">Costuming</h2>
+                <h2 class="dropdown-label" onclick="toggleDropdown(costumeBox)" role="button" tabindex="0" aria-hidden="false" aria-controls="costumeBox">Costuming</h2>
                 <span class="dropdown-arrow">&#9662;</span>
                 <div class="dropdown-content" id="costumeBox">
                     <p><b><span style="color:#ff0000">Singer</span></b>
@@ -85,33 +84,60 @@
     <script>
         function toggleDropdown(dropdownID) {
             const dropdownContent = document.getElementById(dropdownID);
-            if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
-                dropdownContent.style.display = "block";
-            } else {
-                dropdownContent.style.display = "none";
+            const dropdownLabel = document.querySelector(`[aria-controls="${dropdownID}"]`);
+            const isVisible = dropdownContent.getAttribute("aria-hidden") === "false";
+    
+            document.querySelectorAll('.dropdown-content').forEach(content => {
+                content.setAttribute("aria-hidden", "true");;
+                const label = document.querySelector(`[aria-controls="${content.id}"]`);
+                label.setAttribute("aria-expanded", "false");
+            });
+
+            if (!isVisible) {
+                dropdownContent.setAttribute("aria-hidden", "false");
+                dropdownLabel.setAttribute("aria-expanded", "true");
             }
         }
 
-        function nonClickableLink() {
-            event.preventDefault();
-        }
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown-content').forEach(content => {
+                    content.setAttribute("aria-hidden", "true");
+                });
+                document.querySelectorAll('.dropdown-label').forEach(label => {
+                    label.setAttribute("aria-expanded", "false");
+                });
+            }
+        });
 
-        function handleLinkClick(event) {
-        event.stopPropagation(); // Prevents event bubbling
-        if (event.currentTarget.getAttribute('href').startsWith('mailto')) {
-            // Handle mailto link here (e.g., open in a new tab)
-            window.open(event.currentTarget.getAttribute('href'), '_blank');
-        }
-    }
-
-        // Attach event listeners after DOM has loaded
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('castDropdown').addEventListener('click', function() {
-                toggleDropdown('castBox');
+           document.querySelectorAll(".dropdown-label").forEach(label => {
+                label.addEventListener('click', function() {
+                    const dropdownID = this.getAttribute("aria-controls");
+                    toggleDropdown(dropdownID);
+                });
+
+                label.addEventListener('keydown', function(event) {
+                    if (event.key === "Enter" || event.key === " ")  {
+                        const dropdownID = this.getAttribute("aria-controls");
+                        toggleDropdown(dropdownID);
+                    }
+                });
+            })
+
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.addEventListener('click', function(event) {
+                    const dropdownID = this.querySelector('.dropdown-content').id;
+                    toggleDropdown(dropdownID);
+                    event.stopPropagation(); // Prevents event bubbling
+                });
             });
 
-            document.getElementById('costumeDropdown').addEventListener('click', function() {
-                toggleDropdown('costumeBox');
+            document.querySelectorAll('.dropdown-content a').forEach(link => {
+                link.addEventListener('click', function(event) {
+                    window.location.href = this.href;
+                    event.stopPropagation();
+                });
             });
         });
     </script>

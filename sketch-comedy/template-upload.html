@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sketch Title</title>
     <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <style>
         @media only screen and (min-width: 600px) {
           main{
@@ -293,18 +292,22 @@
         .character yellow {
             color: #d4cb75;
         }
+
+        .dropdown-content[aria-hidden="false"] {
+            display: block;
+        }
       </style>
 </head>
 <body>
     <div class="titleBackground">
-        <div class="hamburger-menu" onclick="toggleAccessibilityMenu()">
+        <div class="hamburger-menu" onclick="toggleAccessibilityMenu()" role="button" tabindex="0">
             <div class="hamburger-icon"></div>
             <div class="hamburger-icon"></div>
             <div class="hamburger-icon"></div>
           </div>
           
           <div class="dropdown-content-accessibility" id="accessibilityDropdown">
-            <button id="toggleColorsButton" onclick="toggleCharacterColors()">Toggle Character Colors</button>
+            <button id="toggleColorsButton" onclick="toggleCharacterColors()" role="button" tabindex="0">Toggle Character Colors</button>
           </div>
           
         <div class="foregroundContainer">
@@ -313,7 +316,7 @@
                 <p><a href="https://www.when2meet.com/?26256989-fYUgF">When2Meet</a></p>
             </div>-->
             <div class="dropdown" id="castDropdown">
-                <h2 class="dropdown-label" onclick="toggleDropdown(lastfmBox)">Cast</h2>
+                <h2 class="dropdown-label" onclick="toggleDropdown(castBox)" role="button" tabindex="0" aria-hidden="false" aria-controls="castBox">Cast</h2>
                 <span class="dropdown-arrow">&#9662;</span>
                 <div class="dropdown-content" id="castBox">
                     <ul>
@@ -322,7 +325,7 @@
                 </div>
             </div>
             <!--<div class="dropdown" id="costumeDropdown">
-                <h2 class="dropdown-label" onclick="toggleDropdown(costumeBox)">Costuming</h2>
+                <h2 class="dropdown-label" onclick="toggleDropdown(costumeBox)" role="button" tabindex="0" aria-hidden="false" aria-controls="costumeBox">Costuming</h2>
                 <span class="dropdown-arrow">&#9662;</span>
                 <div class="dropdown-content" id="costumeBox">
                     <p><span style="color:#000000">Person 1</span>
@@ -344,15 +347,6 @@
         </div>
     </div>
     <script>
-        function toggleDropdown(dropdownID) {
-            const dropdownContent = document.getElementById(dropdownID);
-            if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
-                dropdownContent.style.display = "block";
-            } else {
-                dropdownContent.style.display = "none";
-            }
-        }
-
         function toggleAccessibilityMenu() {
             const dropdown = document.getElementById("accessibilityDropdown");
             dropdown.classList.toggle("show");
@@ -386,15 +380,63 @@
                 if (name.classList.contains("yellow")) name.style.color = '#d4cb75';
             });
         }
-        // Attach event listeners after DOM has loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            applyCharacterColors();
-            document.getElementById('castDropdown').addEventListener('click', function() {
-                toggleDropdown('castBox');
+
+        function toggleDropdown(dropdownID) {
+            const dropdownContent = document.getElementById(dropdownID);
+            const dropdownLabel = document.querySelector(`[aria-controls="${dropdownID}"]`);
+            const isVisible = dropdownContent.getAttribute("aria-hidden") === "false";
+    
+            document.querySelectorAll('.dropdown-content').forEach(content => {
+                content.setAttribute("aria-hidden", "true");;
+                const label = document.querySelector(`[aria-controls="${content.id}"]`);
+                label.setAttribute("aria-expanded", "false");
             });
 
-            document.getElementById('costumeDropdown').addEventListener('click', function() {
-                toggleDropdown('costumeBox');
+            if (!isVisible) {
+                dropdownContent.setAttribute("aria-hidden", "false");
+                dropdownLabel.setAttribute("aria-expanded", "true");
+            }
+        }
+
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown-content').forEach(content => {
+                    content.setAttribute("aria-hidden", "true");
+                });
+                document.querySelectorAll('.dropdown-label').forEach(label => {
+                    label.setAttribute("aria-expanded", "false");
+                });
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+           document.querySelectorAll(".dropdown-label").forEach(label => {
+                label.addEventListener('click', function() {
+                    const dropdownID = this.getAttribute("aria-controls");
+                    toggleDropdown(dropdownID);
+                });
+
+                label.addEventListener('keydown', function(event) {
+                    if (event.key === "Enter" || event.key === " ")  {
+                        const dropdownID = this.getAttribute("aria-controls");
+                        toggleDropdown(dropdownID);
+                    }
+                });
+            })
+
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.addEventListener('click', function(event) {
+                    const dropdownID = this.querySelector('.dropdown-content').id;
+                    toggleDropdown(dropdownID);
+                    event.stopPropagation(); // Prevents event bubbling
+                });
+            });
+
+            document.querySelectorAll('.dropdown-content a').forEach(link => {
+                link.addEventListener('click', function(event) {
+                    window.location.href = this.href;
+                    event.stopPropagation();
+                });
             });
         });
     </script>

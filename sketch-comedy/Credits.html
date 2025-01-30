@@ -7,7 +7,6 @@
     <title>Credits</title>
     <link rel="stylesheet" href="css/comedy.css">
     <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <style>
         @media only screen and (min-width: 600px) {
           main{
@@ -26,10 +25,10 @@
         <div class="foregroundContainer">
             <h1>Credits</h1>
             <div class="link">
-                <p><a href="index-comedy.html">Return</a></p>
+                <p><a href="index-comedy.html" tabindex="0" role="link">Return</a></p>
             </div>
             <div class="dropdown" id="shonkDrop">
-                <h2 class="dropdown-label" onclick="toggleDropdown(shonkContent)">Shonk Tonk</h2>
+                <h2 class="dropdown-label" onclick="toggleDropdown(shonkContent)" role="button" tabindex="0" aria-expanded="false" aria-controls="shonkContent">Shonk Tonk</h2>
                 <span class="dropdown-arrow">&#9662;</span>
                 <div class="dropdown-content" id="shonkContent">
                     <p>AD: Chris Pandapas</p>
@@ -39,7 +38,7 @@
                 </div>
             </div>
             <div class="dropdown" id="impracticalDrop">
-                <h2 class="dropdown-label" onclick="toggleDropdown(impracticalContent)">The Impractical Superhero</h2>
+                <h2 class="dropdown-label" onclick="toggleDropdown(impracticalContent)" role="button" tabindex="0" aria-expanded="false" aria-controls="impracticalContent">The Impractical Superhero</h2>
                 <span class="dropdown-arrow">&#9662;</span>
                 <div class="dropdown-content" id="impracticalContent">
                     <p>AD: None</p>
@@ -50,7 +49,7 @@
                 </div>
             </div>
             <div class="dropdown" id="kavenDrop">
-                <h2 class="dropdown-label" onclick="toggleDropdown(kavenContent)">Kaven Hall</h2>
+                <h2 class="dropdown-label" onclick="toggleDropdown(kavenContent)" role="button" tabindex="0" aria-expanded="false" aria-controls="kavenContent">Kaven Hall</h2>
                 <span class="dropdown-arrow">&#9662;</span>
                 <div class="dropdown-content" id="kavenContent">
                     <p>AD: None</p>
@@ -58,7 +57,7 @@
                 </div>
             </div>
             <div class="dropdown" id="roxanneDrop">
-                <h2 class="dropdown-label" onclick="toggleDropdown(roxanneContent)">Roxanne</h2>
+                <h2 class="dropdown-label" onclick="toggleDropdown(roxanneContent)" role="button" tabindex="0" aria-expanded="false" aria-controls="roxanneContent">Roxanne</h2>
                 <span class="dropdown-arrow">&#9662;</span>
                 <div class="dropdown-content" id="roxanneContent">
                     <p>AD: Cameron Hobbs</p>
@@ -68,7 +67,7 @@
                 </div>
             </div>
             <div class="dropdown" id="kissDrop">
-                <h2 class="dropdown-label" onclick="toggleDropdown(kissContent)">Kiss™ It Better</h2>
+                <h2 class="dropdown-label" onclick="toggleDropdown(kissContent)" role="button" tabindex="0" aria-expanded="false" aria-controls="kissContent">Kiss™ It Better</h2>
                 <span class="dropdown-arrow">&#9662;</span>
                 <div class="dropdown-content" id="kissContent">
                     <p>AD: Axe Kiraly</p>
@@ -77,7 +76,7 @@
                 </div>
             </div>
             <div class="dropdown" id="mozartDrop">
-                <h2 class="dropdown-label" onclick="toggleDropdown(kissContent)">Mozart</h2>
+                <h2 class="dropdown-label" onclick="toggleDropdown(kissContent)" role="button" tabindex="0" aria-expanded="false" aria-controls="mozartContent">Mozart</h2>
                 <span class="dropdown-arrow">&#9662;</span>
                 <div class="dropdown-content" id="mozartContent">
                     <p>AD: None</p>
@@ -91,18 +90,47 @@
     <script>
         function toggleDropdown(dropdownID) {
             const dropdownContent = document.getElementById(dropdownID);
-            const isVisible = dropdownContent.style.display === "block";
+            const dropdownLabel = document.querySelector(`[aria-controls="${dropdownID}"]`);
+            const isVisible = dropdownContent.getAttribute("aria-hidden") === "false";
     
             document.querySelectorAll('.dropdown-content').forEach(content => {
-                content.style.display = 'none';
+                content.setAttribute("aria-hidden", "true");;
+                const label = document.querySelector(`[aria-controls="${content.id}"]`);
+                label.setAttribute("aria-expanded", "false");
             });
 
             if (!isVisible) {
-                dropdownContent.style.display = 'block';
+                dropdownContent.setAttribute("aria-hidden", "false");
+                dropdownLabel.setAttribute("aria-expanded", "true");
             }
         }
 
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown-content').forEach(content => {
+                    content.setAttribute("aria-hidden", "true");
+                });
+                document.querySelectorAll('.dropdown-label').forEach(label => {
+                    label.setAttribute("aria-expanded", "false");
+                });
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', function() {
+           document.querySelectorAll(".dropdown-label").forEach(label => {
+                label.addEventListener('click', function() {
+                    const dropdownID = this.getAttribute("aria-controls");
+                    toggleDropdown(dropdownID);
+                });
+
+                label.addEventListener('keydown', function(event) {
+                    if (event.key === "Enter" || event.key === " ")  {
+                        const dropdownID = this.getAttribute("aria-controls");
+                        toggleDropdown(dropdownID);
+                    }
+                });
+            })
+
             document.querySelectorAll('.dropdown').forEach(dropdown => {
                 dropdown.addEventListener('click', function(event) {
                     const dropdownID = this.querySelector('.dropdown-content').id;
@@ -118,6 +146,6 @@
                 });
             });
         });
-    </script>
+        </script>
 </body>
 </html>
